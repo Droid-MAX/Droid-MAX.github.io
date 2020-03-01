@@ -94,22 +94,23 @@
 
 
 
-<meta name="description" content="前言好久前就开始关注ArduinoDroid这个安卓平台上的ArduinoIDE了，在今年暑假，一次偶然让我在谷歌应用商店上看到了它，恰好当时手头上有两块一个星期前买的想用作BadUSB的开发板，一个是Digispark(ATtiny85)，另一个是CJMCU的Leonardo(Atmega32u4)。于是我便毫不犹豫地下载并安装了这款ArduinoDroid应用，不过在当时这款应用并不支持Dig">
+<meta name="description" content="前提条件:一部已root、支持otg功能、支持usb网卡(usb转rj45)上网的安卓手机 物件准备:上述手机一部，otg数据线一根，usb网卡一张，网线一根 软件准备:终端模拟器类软件(此处使用的是Termux)">
 <meta name="keywords" content="教程,原创">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用ArduinoDroid将Digispark(ATtiny85)打造成BadUSB">
-<meta property="og:url" content="https://droid-max.github.io/2017/12/02/ArduinoDroid_with_Digispark-BadUSB/index.html">
+<meta property="og:title" content="如何在手机上搭建tftp服务器来为路由器刷机">
+<meta property="og:url" content="https://droid-max.github.io/2018/10/12/How-to-set-up-a-tftp-server-on-your-mobile-phone/index.html">
 <meta property="og:site_name" content="傻狍子的小窝">
-<meta property="og:description" content="前言好久前就开始关注ArduinoDroid这个安卓平台上的ArduinoIDE了，在今年暑假，一次偶然让我在谷歌应用商店上看到了它，恰好当时手头上有两块一个星期前买的想用作BadUSB的开发板，一个是Digispark(ATtiny85)，另一个是CJMCU的Leonardo(Atmega32u4)。于是我便毫不犹豫地下载并安装了这款ArduinoDroid应用，不过在当时这款应用并不支持Dig">
+<meta property="og:description" content="前提条件:一部已root、支持otg功能、支持usb网卡(usb转rj45)上网的安卓手机 物件准备:上述手机一部，otg数据线一根，usb网卡一张，网线一根 软件准备:终端模拟器类软件(此处使用的是Termux)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/9H1F52F.jpg">
-<meta property="og:image" content="https://i.imgur.com/cSQeVZm.jpg">
-<meta property="og:image" content="https://i.imgur.com/NyEEfUH.jpg">
-<meta property="og:updated_time" content="2018-07-22T05:02:49.562Z">
+<meta property="og:image" content="https://i.imgur.com/ZueR8vL.png">
+<meta property="og:image" content="https://i.imgur.com/l1dM521.png">
+<meta property="og:image" content="https://i.imgur.com/cmxfu2B.png">
+<meta property="og:image" content="https://i.imgur.com/ZZ0fpU1.png">
+<meta property="og:updated_time" content="2020-03-01T07:26:41.853Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用ArduinoDroid将Digispark(ATtiny85)打造成BadUSB">
-<meta name="twitter:description" content="前言好久前就开始关注ArduinoDroid这个安卓平台上的ArduinoIDE了，在今年暑假，一次偶然让我在谷歌应用商店上看到了它，恰好当时手头上有两块一个星期前买的想用作BadUSB的开发板，一个是Digispark(ATtiny85)，另一个是CJMCU的Leonardo(Atmega32u4)。于是我便毫不犹豫地下载并安装了这款ArduinoDroid应用，不过在当时这款应用并不支持Dig">
-<meta name="twitter:image" content="https://i.imgur.com/9H1F52F.jpg">
+<meta name="twitter:title" content="如何在手机上搭建tftp服务器来为路由器刷机">
+<meta name="twitter:description" content="前提条件:一部已root、支持otg功能、支持usb网卡(usb转rj45)上网的安卓手机 物件准备:上述手机一部，otg数据线一根，usb网卡一张，网线一根 软件准备:终端模拟器类软件(此处使用的是Termux)">
+<meta name="twitter:image" content="https://i.imgur.com/ZueR8vL.png">
 
 
 
@@ -138,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="https://droid-max.github.io/2017/12/02/ArduinoDroid_with_Digispark-BadUSB/"/>
+  <link rel="canonical" href="https://droid-max.github.io/2018/10/12/How-to-set-up-a-tftp-server-on-your-mobile-phone/"/>
 
 
 
 
 
-  <title>使用ArduinoDroid将Digispark(ATtiny85)打造成BadUSB | 傻狍子的小窝</title>
+  <title>如何在手机上搭建tftp服务器来为路由器刷机 | 傻狍子的小窝</title>
   
 
 
@@ -281,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://droid-max.github.io/2017/12/02/ArduinoDroid_with_Digispark-BadUSB/">
+    <link itemprop="mainEntityOfPage" href="https://droid-max.github.io/2018/10/12/How-to-set-up-a-tftp-server-on-your-mobile-phone/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Droid-MAX">
@@ -298,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用ArduinoDroid将Digispark(ATtiny85)打造成BadUSB</h1>
+          <h1 class="post-title" itemprop="name headline">如何在手机上搭建tftp服务器来为路由器刷机</h1>
         
 
         <div class="post-meta">
@@ -310,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T17:47:00+08:00">
-                2017-12-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-12T00:00:00+08:00">
+                2018-10-12
               </time>
             
 
@@ -333,8 +334,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/搞机/" itemprop="url" rel="index">
-                    <span itemprop="name">搞机</span>
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
                   </a>
                 </span>
 
@@ -350,7 +351,7 @@
 
           
           
-             <span id="/2017/12/02/ArduinoDroid_with_Digispark-BadUSB/" class="leancloud_visitors" data-flag-title="使用ArduinoDroid将Digispark(ATtiny85)打造成BadUSB">
+             <span id="/2018/10/12/How-to-set-up-a-tftp-server-on-your-mobile-phone/" class="leancloud_visitors" data-flag-title="如何在手机上搭建tftp服务器来为路由器刷机">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -375,7 +376,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  538
+                  457
                 </span>
               
 
@@ -412,32 +413,24 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>好久前就开始关注ArduinoDroid这个安卓平台上的ArduinoIDE了，在今年暑假，一次偶然让我在谷歌应用商店上看到了它，恰好当时手头上有两块一个星期前买的想用作BadUSB的开发板，一个是Digispark(ATtiny85)，另一个是CJMCU的Leonardo(Atmega32u4)。于是我便毫不犹豫地下载并安装了这款ArduinoDroid应用，不过在当时这款应用并不支持Digispark的开发(具体原因我也记不清了，当时设置里面的开发板类型当中并没有Digistump系列的，好像还有关于这个系列开发板功能支持的众筹？！)随后把Leonardo这块板子拿来试水，奈何我技术还没学到家，还不是很会用ArduinoDroid，半天都没能成功的把代码编译上传烧录进去，最后还是用的PC端的ArduinoIDE给搞定的……</p>
+        <h3 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件:"></a>前提条件:</h3><p>一部已root、支持otg功能、支持usb网卡(usb转rj45)上网的安卓手机</p>
+<h3 id="物件准备"><a href="#物件准备" class="headerlink" title="物件准备:"></a>物件准备:</h3><p>上述手机一部，otg数据线一根，usb网卡一张，网线一根</p>
+<h3 id="软件准备"><a href="#软件准备" class="headerlink" title="软件准备:"></a>软件准备:</h3><p>终端模拟器类软件(此处使用的是Termux)</p>
 <a id="more"></a>
+<h2 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤:"></a>主要步骤:</h2><h3 id="1、连接路由器"><a href="#1、连接路由器" class="headerlink" title="1、连接路由器"></a>1、连接路由器</h3><p>首先将手机、otg数据线、usb网卡与网线连接好，再将网线另一端连接到路由器的LAN口</p>
+<h3 id="2、检查网络接口"><a href="#2、检查网络接口" class="headerlink" title="2、检查网络接口"></a>2、检查网络接口</h3><p>手机端打开Termux，执行 ifconfig 命令查看网络接口是否被正常识别，如有eth0接口出现，即可进行下一步操作</p>
+<h3 id="3、配置静态ip"><a href="#3、配置静态ip" class="headerlink" title="3、配置静态ip"></a>3、配置静态ip</h3><p><img src="https://i.imgur.com/ZueR8vL.png" alt=""></p>
+<p>静态ip的配置依实际情况而定(注意:此步操作需要root权限)</p>
+<h3 id="4、准备下载"><a href="#4、准备下载" class="headerlink" title="4、准备下载"></a>4、准备下载</h3><p>首先明确tftp服务器的根目录(即被用于下载的固件文件存放在手机当中的哪个目录下)，使用cd命令切换到存放有路由器固件的文件夹当中</p>
+<p>启动tftp服务器</p>
+<p><img src="https://i.imgur.com/l1dM521.png" alt=""></p>
+<p>执行完截图当中的命令后只有在开始下载固件时才会有后四行输出(注意:此步操作需要root权限)</p>
+<h3 id="5、开始下载"><a href="#5、开始下载" class="headerlink" title="5、开始下载"></a>5、开始下载</h3><p>通过串口调试的方式在路由器上电后迅速中断其正常引导系统，进入U-Boot菜单，根据对应的选项选择通过tftp来更新固件，依照提示分别输入路由器ip，手机ip，完整固件文件名</p>
+<p><img src="https://i.imgur.com/cmxfu2B.png" alt=""></p>
+<p>确认无误后回车即可开始下载</p>
+<h3 id="6、结束下载"><a href="#6、结束下载" class="headerlink" title="6、结束下载"></a>6、结束下载</h3><p>等到串口调试输出显示路由器开始加载内核时即可终止udpsvd的运行(使用 Ctrl + C 终止)，关闭eth0接口(使用root权限执行 ifconfig eth0 down)，最后拔掉otg数据线</p>
 <hr>
-<h2 id="言归正传"><a href="#言归正传" class="headerlink" title="言归正传"></a>言归正传</h2><p>两块开发板吃了一段时间灰之后的某一天，谷歌应用商店突然在通知栏上提醒我，有很多应用更新了，这其中就包括ArduinoDroid，其最新版本号为4.5.1</p>
-<ul>
-<li><p>安装包下载地址：<a href="https://pan.baidu.com/s/1b7Yx4q" target="_blank" rel="noopener">百度网盘</a></p>
-</li>
-<li><p>准备一根OTG数据线</p>
-</li>
-<li><p>设置目标开发板的类型为Digispark(Default-16.5mhz)</p>
-</li>
-</ul>
-<p><img src="https://i.imgur.com/9H1F52F.jpg" alt=""></p>
-<ul>
-<li><p>从GitHub上下载Digispark专用Keyboard库并部署到本地(有时候重启ArduinoDroid时会重新部署本地头文件库，所以可能需要手动重新部署Keyboard库) <a href="https://github.com/ernesto-xload/DigisparkKeyboard/archive/master.zip" target="_blank" rel="noopener">点此下载</a></p>
-</li>
-<li><p>下载我写好的<a href="https://pan.baidu.com/s/1o8tDbR0" target="_blank" rel="noopener">demo</a>示例文件，并在ArduinoDroid中打开，编译，连接开发板，上传烧录</p>
-</li>
-</ul>
-<p><img src="https://i.imgur.com/cSQeVZm.jpg" alt=""></p>
-<p><img src="https://i.imgur.com/NyEEfUH.jpg" alt=""></p>
-<ul>
-<li>上传完毕后，将Digispark插入主机的USB接口上，电脑会将开发板识别成USB输入设备，第一次插入时系统首先会自动安装好相关驱动，几秒钟之后就会看到电脑自动打开CMD窗口执行ipconfig命令</li>
-</ul>
-<hr>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>其实所有的一切都得益于ArduinoDroid的开发者，没有他们的努力就不会有这篇教程，这里也十分感谢大家能够看完我写的这篇一点卵用都没有的教程！ (逃~</p>
+<h3 id="操作演示"><a href="#操作演示" class="headerlink" title="操作演示:"></a>操作演示:</h3><p><img src="https://i.imgur.com/ZZ0fpU1.png" alt=""></p>
 
       
     </div>
@@ -458,7 +451,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://droid-max.github.io/2017/12/02/ArduinoDroid_with_Digispark-BadUSB/" title="使用ArduinoDroid将Digispark(ATtiny85)打造成BadUSB">https://droid-max.github.io/2017/12/02/ArduinoDroid_with_Digispark-BadUSB/</a>
+    <a href="https://droid-max.github.io/2018/10/12/How-to-set-up-a-tftp-server-on-your-mobile-phone/" title="如何在手机上搭建tftp服务器来为路由器刷机">https://droid-max.github.io/2018/10/12/How-to-set-up-a-tftp-server-on-your-mobile-phone/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -488,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/25/Use_Eternalblue_and_MSF_to_penetration_the_Internal-Network_Target_under_Win10/" rel="next" title="在Win10系统下使用永恒之蓝和MSF框架对内网主机进行渗透测试">
-                <i class="fa fa-chevron-left"></i> 在Win10系统下使用永恒之蓝和MSF框架对内网主机进行渗透测试
+              <a href="/2017/12/12/The-Proxmark3-client-on-Android/" rel="next" title="一款安卓平台上的pm3客户端应用">
+                <i class="fa fa-chevron-left"></i> 一款安卓平台上的pm3客户端应用
               </a>
             
           </div>
@@ -498,8 +491,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/12/The_Proxmark3_client_on_Android/" rel="prev" title="分享一款安卓平台上的pm3客户端应用">
-                分享一款安卓平台上的pm3客户端应用 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/12/My-Linux-VPS-Guide/" rel="prev" title="我的VPS指南(Linux)">
+                我的VPS指南(Linux) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -591,7 +584,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -640,7 +633,11 @@
             <ul class="links-of-blogroll-list">
               
                 <li class="links-of-blogroll-item">
-                  <a href="https://edward-p.ml/" title="Edward-P's Blog" target="_blank">Edward-P's Blog</a>
+                  <a href="https://blog.edward-p.xyz/" title="Edward-P's Blog" target="_blank">Edward-P's Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.ssvip.gs/" title="ZzSir's Blog" target="_blank">ZzSir's Blog</a>
                 </li>
               
             </ul>
@@ -662,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#言归正传"><span class="nav-number">2.</span> <span class="nav-text">言归正传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前提条件"><span class="nav-number">1.</span> <span class="nav-text">前提条件:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物件准备"><span class="nav-number">2.</span> <span class="nav-text">物件准备:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件准备"><span class="nav-number">3.</span> <span class="nav-text">软件准备:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要步骤"><span class="nav-number"></span> <span class="nav-text">主要步骤:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、连接路由器"><span class="nav-number">1.</span> <span class="nav-text">1、连接路由器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、检查网络接口"><span class="nav-number">2.</span> <span class="nav-text">2、检查网络接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、配置静态ip"><span class="nav-number">3.</span> <span class="nav-text">3、配置静态ip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、准备下载"><span class="nav-number">4.</span> <span class="nav-text">4、准备下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、开始下载"><span class="nav-number">5.</span> <span class="nav-text">5、开始下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、结束下载"><span class="nav-number">6.</span> <span class="nav-text">6、结束下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作演示"><span class="nav-number">7.</span> <span class="nav-text">操作演示:</span></a></li></ol></div>
             
 
           </div>
@@ -685,7 +682,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
